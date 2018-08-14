@@ -1,33 +1,35 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta content="" name="description" />
+    <meta content="" name="description" />
     <meta content="webthemez" name="author" />
     <title>官网后台</title>
-	 <!-- Bootstrap Styles-->
+    <!-- Bootstrap Styles-->
     <link href="../../../../static/admin/commonstatic/css/bootstrap.css" rel="stylesheet" />
     <!-- <link href="../../../../static/admin/commonstatic/css/bootstrap-datetimepicker.min.css" rel="stylesheet" /> -->
-     <!-- FontAwesome Styles-->
+    <!-- FontAwesome Styles-->
     <link href="../../../../static/admin/commonstatic/css/font-awesome.css" rel="stylesheet" />
-     <!-- Custom Styles-->
+    <!-- Custom Styles-->
     <link href="../../../../static/admin/commonstatic/css/custom-styles.css" rel="stylesheet" />
-     <!-- Google Fonts-->
-   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-   <style>
+    <!-- Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <style>
         [v-load] {
-             display: none;
+            display: none;
         }
-   </style>
+    </style>
 </head>
+
 <body>
     <div id="wrapper">
         <!--top-->
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.html"><strong>后台</strong></a>
-				<div id="sideNav" href="">
+                <div id="sideNav" href="">
                     <i class="fa fa-bars icon"></i>
                 </div>
             </div>
@@ -61,8 +63,9 @@
                     <!-- <li> 
                         <router-link to="/s"><i class="fa fa-dashboard"></i>首页</router-link>
                     </li> -->
-    
-                    <!--二级菜单&游戏官网--><!--主li标签上箭头向下：class="active"  次ul标签上展开：class="in"  次a标签上选中：class="active-menu"-->
+
+                    <!--二级菜单&游戏官网-->
+                    <!--主li标签上箭头向下：class="active"  次ul标签上展开：class="in"  次a标签上选中：class="active-menu"-->
                     <!-- <li> 
                         <a href="#"><i class="fa fa-sitemap"></i> 游戏官网<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level" >
@@ -74,45 +77,38 @@
                             </li>
                         </ul>
                     </li> -->
-                    <li 
-                       v-for="(list,index) in navlist"
-                       @click = "clicknav1(index)"
-                    >
+                    <li v-for="(list,index) in navlist" @click="clicknav1(index)">
                         <!-- 有一级菜单 -->
                         <router-link :class="{'active-menu': indexp === index }" :to="list.a.link" v-if="!list.b" data-index="index"><i class="fa" :class="list.a.fonticon"></i>{{list.a.name}}</router-link>
                         <!-- 有二级菜单 -->
                         <a href="#" v-if="list.b"><i class="fa" :class="list.a.fonticon"></i> {{list.a.name}}<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level" >
-                            <li
-                               v-for="(list2,index2) in list.b"
-                               @click = "clickgw(index2)"
-                               :class="{'active-menu': gwindex === index2 }"
-                            >
-                            <!--  -->
+                        <ul class="nav nav-second-level">
+                            <li v-for="(list2,index2) in list.b" @click="clickgw(index2)" :class="{'active-menu': gwindex === index2 }">
+                                <!--  -->
                                 <router-link :to="list2.link">{{list2.name}}</router-link>
                             </li>
                         </ul>
                     </li>
                 </ul>
-    
+
             </div>
         </nav>
         <!--主体内容-->
         <div id="page-wrapper">
-          <router-view></router-view>
+            <router-view></router-view>
         </div>
     </div>
-     <!-- /. WRAPPER  -->
+    <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="../../../../static/admin/commonstatic/js/jquery-1.10.2.js"></script>
-      <!-- Bootstrap Js -->
+    <!-- Bootstrap Js -->
     <script src="../../../../static/admin/commonstatic/js/bootstrap.min.js"></script>
     <!-- <script src="../../../../static/admin/commonstatic/js/bootstrap-datetimepicker.min.js"></script>
     <script src="../../../../static/admin/commonstatic/js/bootstrap-datetimepicker.zh-CN.js"></script> -->
     <!-- Metis Menu Js -->
     <script src="../../../../static/admin/commonstatic/js/jquery.metisMenu.js"></script>
-      <!-- Custom Js -->
+    <!-- Custom Js -->
     <script src="../../../../static/admin/commonstatic/js/custom-scripts.js"></script>
 
     <!-- DATA TABLE SCRIPTS -->
@@ -121,4 +117,5 @@
     <!--富文本编辑-->
     <!-- <script src="../../../../static/admin/commonstatic/js/wangEditor.min.js"></script> -->
 </body>
+
 </html>

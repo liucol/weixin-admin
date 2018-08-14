@@ -185,9 +185,9 @@
                         msg = res.data.Msg
 
                     if(code == 0){
-                        // setTimeout(function(){
-                        //     window.location.reload()
-                        // },100)
+                        setTimeout(function(){
+                            window.location.reload()
+                        },100)
                     }else if(code == 2){
                         window.location.href = url.login
                     }else{
